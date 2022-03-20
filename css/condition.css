@@ -1,0 +1,560 @@
+/* header */
+
+.burger-btn-close:focus,
+.burger-btn-open:focus,
+.form-btn-close:focus,
+.search-btn-close:focus,
+.header__button-right:focus {
+    outline: none;
+}
+
+.burger-btn-close:hover .btn-close-icon rect,
+.burger-btn-close:focus .btn-close-icon rect,
+.form-btn-close:hover .search-close-icon rect,
+.form-btn-close:focus .search-close-icon rect,
+.header__button-right:hover .button-search-icon path,
+.header__button-right:focus .button-search-icon path {
+    fill: var(--font-color-purple);
+}
+
+.burger-btn-close:active .btn-close-icon rect {
+    fill: var(--font-color-dark-purple);
+}
+
+.burger-btn-open:hover .btn-open-icon path,
+.burger-btn-open:hover .btn-open-icon rect,
+.burger-btn-open:focus .btn-open-icon path,
+.burger-btn-open:focus .btn-open-icon rect {
+    fill: var(--font-color-purple);
+}
+
+.burger-btn-open:active .btn-open-icon path,
+.burger-btn-open:active .btn-open-icon rect,
+.form-btn-close:active .search-close-icon rect,
+.header__button-right:active .button-search-icon path {
+    fill: var(--font-color-dark-purple);
+}
+
+.form-btn-search:focus {
+    outline: none;
+}
+
+.form-btn-search:focus path {
+    fill: var(--font-color-purple);
+}
+
+.form-btn-search:hover path {
+    fill: var(--font-color-purple);
+}
+
+.form-btn-search:active path {
+    fill: var(--font-color-dark-purple);
+}
+
+.header__logo:hover {
+    transform: scaleX(1.1);
+}
+
+.header__logo:focus {
+    outline: 2px solid var(--font-color-purple);
+}
+
+.header__logo:active {
+    outline: none;
+    transform: scaleX(1);
+}
+
+.form-input:hover {
+    border-color: #c283f3;
+}
+
+.form-btn-search:focus,
+.form-input:focus {
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: var(--font-color-dark-purple);
+}
+
+.item-href:hover {
+    color: #c283f3;
+}
+
+.item-href:focus:not(:hover):not(:active) {
+    background-color: var(--font-color-dark-purple);
+    color: var(--font-color-white);
+    outline: none;
+}
+
+.item-href:active {
+    color: var(--font-color-dark-purple);
+}
+
+@media (max-width: 1439px) {
+    .button-primary:hover {
+        background-color: var(--font-color-purple);
+    }
+    .button-primary:focus {
+        outline: none;
+    }
+    .button-primary:focus:not(:hover):not(:active)::before {
+        transform: scale(1);
+    }
+    .button-primary:active {
+        background-color: var(--font-color-dark-purple);
+        border-color: var(--font-color-purple);
+    }
+}
+
+@media (min-width: 1440px) {
+    .button-primary:hover {
+        color: var(--font-color-purple);
+        background-color: var(--color-transparent);
+    }
+    .button-primary:hover .button-primary-icon path {
+        fill: var(--font-color-purple);
+    }
+    .button-primary:focus:not(:active):not(:hover) {
+        outline: none;
+        background-color: var(--font-color-purple);
+    }
+    .button-primary:active {
+        color: var(--font-color-dark-purple);
+        background-color: var(--color-transparent);
+    }
+    .button-primary:active .button-primary-icon path {
+        fill: var(--font-color-dark-purple);
+    }
+}
+
+.button-second-list:hover {
+    color: var(--font-color-purple);
+}
+
+.button-second-list:hover .button-second-svg path {
+    stroke: var(--font-color-purple);
+}
+
+.button-second-list:focus:not(:hover):not(:active) {
+    outline: none;
+    background-color: var(--font-color-purple);
+    color: var(--font-color-white);
+}
+
+.button-second-list:active {
+    color: var(--font-color-dark-purple);
+}
+
+.button-second-list:active .button-second-svg path {
+    stroke: var(--font-color-dark-purple);
+}
+
+.button-second-list:active .button-second-svg {
+    transform: rotate(180deg);
+}
+
+.header__drop-href:hover,
+.header__drop-href:focus {
+    outline: none;
+    background-color: var(--font-color-purple);
+}
+
+.header__drop-href:active::before {
+    opacity: 1;
+}
+
+
+/* hero */
+
+.hero__button:hover {
+    border-color: var(--color-light-purple);
+}
+
+.hero__button:focus:not(:hover):not(:active)::before {
+    transform: scale(1);
+}
+
+.hero__button:focus {
+    outline: none;
+}
+
+.hero__button:active {
+    background-color: var(--font-color-dark-purple);
+}
+
+.choices:hover,
+.choices:focus {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* для чекбокса */
+
+.checkbox__label>.checkbox__input:not(:disabled):not(:checked)+.checkbox__span:hover {
+    color: var(--font-color-purple);
+}
+
+.checkbox__label>.checkbox__input:not(:disabled):not(:checked)+.checkbox__span:hover::before {
+    border-color: var(--font-color-purple);
+}
+
+.checkbox__label:focus:not(:checked) {
+    outline: none;
+    color: var(--font-color-purple);
+}
+
+.checkbox__label:focus>.checkbox__input:not(:checked)+.checkbox__span::before {
+    border-color: var(--font-color-purple);
+}
+
+.checkbox__label>.checkbox__input:checked+.checkbox__span::before {
+    border-color: var(--font-color-purple);
+}
+
+.checkbox__label>.checkbox__input:checked+.checkbox__span {
+    color: var(--font-color-purple);
+}
+
+.checkbox__label>.checkbox__input:checked+.checkbox__span::after {
+    opacity: 1;
+}
+
+
+/* для кнопок под слайдером */
+
+.btn-condition-galery:hover:not(:disabled) {
+    background-color: var(--font-color-purple);
+}
+
+.btn-condition-galery:focus:not(:disabled) {
+    border-color: var(--color-black);
+    outline: none;
+}
+
+.btn-condition-galery:active:not(:hover) {
+    background-color: var(--font-color-dark-purple);
+    border-color: var(--color-black);
+}
+
+
+/* сам слайдер */
+
+.galery__slide:hover::after {
+    opacity: 1;
+}
+
+.galery__slide:focus:not(:hover) {
+    outline: none;
+    border-color: var(--font-color-dark-purple);
+}
+
+.galery__slide:focus:not(:hover):not(:active)::before {
+    border-color: var(--font-color-dark-purple);
+}
+
+.galery__slide:active::after {
+    border-color: var(--color-light-purple);
+    background-color: rgba(194, 131, 243, .4);
+}
+
+
+/* для аккордеона */
+
+
+/* .catalog__item-info:hover .catalog__item-title {
+  color: var(--font-color-purple);
+} */
+
+.catalog__item-info:hover .button-circle-icon circle {
+    fill: var(--color-light-purple);
+}
+
+.catalog__item .ui-accordion-header:hover {
+    border-bottom: 1px solid var(--font-color-purple);
+    border-top: 1px solid var(--font-color-purple);
+    color: var(--font-color-purple);
+    z-index: 1;
+}
+
+.catalog__item:hover {
+    outline: none;
+}
+
+.catalog__item-info:focus {
+    outline: none;
+}
+
+.catalog__item-info:focus:not(:active):not(:hover) .catalog__item-title {
+    color: var(--font-color-white);
+    background-color: var(--font-color-purple);
+}
+
+.catalog__item-info:focus:not(:active):not(:hover) .button-circle-icon circle {
+    fill: var(--color-light-purple);
+}
+
+.catalog__item-info:active .button-circle-icon {
+    transform: rotate(180deg);
+}
+
+.catalog__item-info:active .catalog__item-title {
+    color: var(--font-color-dark-purple);
+}
+
+.catalog__item-info:active .button-circle-icon circle {
+    fill: var(--color-light-purple);
+}
+
+.catalog__item-info:active .button-circle-icon {
+    border-color: var(--font-color-purple);
+}
+
+.catalog__item .ui-accordion-header:active {
+    outline: none;
+    z-index: 15;
+    border-top: 1px solid var(--font-color-dark-purple);
+    border-bottom: 1px solid var(--font-color-dark-purple);
+}
+
+
+/* для табов в аккордеоне */
+
+.people-item-button:hover:not(:active) {
+    color: var(--font-color-purple);
+    border-bottom: 1px solid var(--font-color-purple);
+}
+
+.people-item-button:focus:not(:hover):not(:active) {
+    outline: none;
+    background-color: var(--font-color-purple);
+    color: var(--font-color-white);
+}
+
+.people-item-button:active {
+    color: var(--font-color-dark-purple);
+    border-bottom: 1px solid var(--font-color-dark-purple);
+}
+
+
+/* для заглушки табов */
+
+.empty-href:hover {
+    border-color: var(--font-color-purple);
+}
+
+.empty-href:focus:not(:active):not(:hover) {
+    outline: none;
+    background-color: var(--font-color-purple);
+    color: var(--font-color-white);
+}
+
+.empty-href:active {
+    color: var(--font-color-dark-purple);
+    border-color: var(--font-color-dark-purple)
+}
+
+
+/* события */
+
+.swiper-pagination .swiper-pagination-bullet:focus {
+    outline: 1px solid var(--font-color-purple);
+}
+
+
+/* кнопка подробнее */
+
+.event-button:hover {
+    color: var(--font-color-dark-purple);
+}
+
+.event-button:hover::before {
+    border-color: var(--font-color-dark-purple);
+}
+
+.event-button:focus:not(:hover):not(:active) {
+    outline: none;
+    background-color: var(--font-color-purple);
+    color: var(--font-color-white);
+}
+
+.event-button:focus:not(:hover):not(:active)::before {
+    border-color: var(--font-color-white);
+}
+
+.event-button:active {
+    color: var(--color-grey);
+}
+
+.event-button:hover::before {
+    border-color: var(--color-grey);
+}
+
+.events__slide:focus {
+    outline: none;
+}
+
+.btn-condition-event:hover {
+    background-color: var(--color-light-purple);
+}
+
+.btn-condition-event:hover .btn-icon-event circle {
+    fill: var(--color-light-purple);
+}
+
+.btn-condition-event:focus:not(:hover):not(:active) {
+    outline: none;
+    background-color: var(--font-color-purple);
+}
+
+.btn-condition-event:active {
+    background-color: var(--font-color-purple);
+}
+
+.btn-condition-event:active .btn-icon-event circle {
+    fill: var(--color-light-purple);
+}
+
+
+/* проекты */
+
+.projects__href:hover {
+    border-color: var(--font-color-purple);
+}
+
+.projects__href:focus:not(:hover):not(:active) {
+    outline: none;
+    background-color: var(--font-color-purple);
+    color: var(--font-color-white);
+}
+
+.projects__href:active {
+    color: var(--font-color-dark-purple);
+    border-color: var(--font-color-dark-purple);
+}
+
+.projects__button:hover {
+    background-color: var(--font-color-purple);
+}
+
+.projects__button:hover::before {
+    opacity: 0;
+}
+
+.projects__button:hover::after {
+    opacity: 1;
+}
+
+.projects__button:focus:not(:hover):not(:active) {
+    outline: none;
+    background-color: var(--color-light-purple);
+}
+
+.projects__button:active {
+    background-color: var(--font-color-purple);
+}
+
+.btn-condition-project:hover:not(:disabled):not(:active) {
+    background-color: var(--font-color-purple);
+    border-color: var(--font-color-purple);
+}
+
+.btn-condition-project:focus:not(:disabled):not(:active) {
+    outline: none;
+    border-color: var(--font-color-purple);
+}
+
+.btn-condition-project:active {
+    background-color: var(--font-color-purple);
+    border-color: var(--font-color-dark-purple);
+}
+
+.projects__slide:hover .slide-project-icon {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.projects__slide:focus:not(:hover):not(:active) {
+    outline: none;
+    border-color: var(--font-color-purple);
+}
+
+.projects__slide:active .slide-project-icon {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.projects__slide:active {
+    border-color: var(--font-color-purple);
+}
+
+
+/* контакты */
+
+.contacts__button:hover {
+    background-color: var(--font-color-purple);
+    color: var(--font-color-white);
+}
+
+.contacts__button:focus:not(:hover):not(:active) {
+    outline: none;
+}
+
+.contacts__button:focus:not(:hover):not(:active)::before {
+    transform: scale(1);
+}
+
+.contacts__button:active {
+    background-color: var(--font-color-dark-purple);
+    color: var(--font-color-white);
+    border: 3px solid var(--color-light-purple);
+}
+
+.contacts__link:focus:not(:hover):not(:active) {
+    outline: none;
+    opacity: 0.5;
+}
+
+.contacts__link:hover {
+    opacity: 0.5;
+}
+
+.contacts__link:active {
+    border-color: #9643a4;
+}
+
+
+/* футер */
+
+.footer__link:hover .footer__icon path {
+    fill: var(--font-color-white);
+}
+
+.footer__link:focus:not(:hover):not(:active) {
+    outline: none;
+}
+
+.footer__link:focus:not(:hover):not(:active) .footer__icon path {
+    fill: var(--font-color-white);
+}
+
+.footer__link:active .footer__icon path {
+    fill: var(--font-color-purple);
+}
+
+.footer__link:active {
+    border-color: #9643a4;
+}
+
+.footer__logo:hover {
+    transform: scaleX(1.1);
+}
+
+.footer__logo:focus {
+    outline: 2px solid var(--font-color-purple);
+}
+
+.footer__logo:active {
+    outline: none;
+    transform: scaleX(1);
+}
