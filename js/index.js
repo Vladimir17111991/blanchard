@@ -50,129 +50,205 @@
     };
     setMenuListener();
 
-
-    //общая функция для свайперов
-    function swiperForSection(nameClass, nextButton, prevButton, paginationName, type, countSlides, space) {
-
-        let slide = new Swiper(nameClass, {
-            // slidesPerView: 1,
-            slidesPerView: countSlides,
-            spaceBetween: space,
-            slidesPerGroup: countSlides,
-            grid: {
-                rows: 1,
-                fill: "row"
-            },
-            // spaceBetween: 20,
-            pagination: {
-                el: paginationName,
-                type: type,
-                clickable: true,
-            },
-            navigation: {
-                nextEl: nextButton,
-                prevEl: prevButton,
-            },
-
-
-            // breakpoints: {
-            //     576: {
-            //         slidesPerView: 2,
-            //         spaceBetween: 30,
-            //         slidesPerGroup: 2,
-            //     },
-            //     768: {
-            //         slidesPerView: 2,
-            //         spaceBetween: 36,
-            //         slidesPerGroup: 2,
-            //     },
-            //     1024: {
-            //         slidesPerView: countSlides,
-            //         spaceBetween: space,
-            //         slidesPerGroup: countSlides,
-            //     },
-            //     1440: {
-            //         slidesPerView: countSlides,
-            //         spaceBetween: space,
-            //         slidesPerGroup: countSlides,
-            //     }
-            // },
-            a11y: false,
-            keyboard: {
-                enabled: true,
-                onlyInViewport: true,
-            }, // можно управлять с клавиатуры стрелками влево/вправо
-
-            // Дальнейшие надстройки делают слайды вне области видимости не фокусируемыми
-            watchSlidesProgress: true,
-            watchSlidesVisibility: true,
-            slideVisibleClass: "slide-visible",
-
-            on: {
-                init: function() {
-                    this.slides.forEach((slide) => {
-                        if (!slide.classList.contains("slide-visible")) {
-                            slide.tabIndex = "-1";
-                        } else {
-                            slide.tabIndex = "";
-                        }
-                    });
-                },
-                slideChange: function() {
-                    this.slides.forEach((slide) => {
-                        if (!slide.classList.contains("slide-visible")) {
-                            slide.tabIndex = "-1";
-                        } else {
-                            slide.tabIndex = "";
-                        }
-                    });
-                }
-            },
-
-        });
-    };
-
-    //Вызываем функцию checkWidth сразу, которая, в зависимости от разрешения экрана, вызывает одну и
-    //ту же функцию свайпера с разным количеством столбцов и расстояния между ними
-    (checkWidth)();
-    window.onresize = checkWidth;
-
-    function checkWidth() {
-        if ($(window).width() >= 576 && $(window).width() < 768) {
-            //свайпер для галереи
-            swiperForSection('.slides-container-galery', '.galery__btn-next', '.galery__btn-prev', '.galery .galery__pagination', 'fraction', 2, 30);
-            //свайпер для проектов
-            swiperForSection('.slides-container-project', '.projects__btn-next', '.projects__btn-prev', '.projects .projects__pagination', 'fraction', 2, 30);
-            //свайпер для событий
-            swiperForSection('.swiper-3-js', '.events__btn-next', '.events__btn-prev', '.events .swiper-pagination', 'bullets', 2, 30);
-        } else if ($(window).width() >= 768 && $(window).width() < 1024) {
-            swiperForSection('.slides-container-galery', '.galery__btn-next', '.galery__btn-prev', '.galery .galery__pagination', 'fraction', 2, 36);
-            swiperForSection('.slides-container-project', '.projects__btn-next', '.projects__btn-prev', '.projects .projects__pagination', 'fraction', 2, 36);
-            swiperForSection('.swiper-3-js', '.events__btn-next', '.events__btn-prev', '.events .swiper-pagination', 'bullets', 2, 36);
-        } else if ($(window).width() >= 1024 && $(window).width() < 1440) {
-            swiperForSection('.slides-container-galery', '.galery__btn-next', '.galery__btn-prev', '.galery .galery__pagination', 'fraction', 2, 36);
-            swiperForSection('.slides-container-project', '.projects__btn-next', '.projects__btn-prev', '.projects .projects__pagination', 'fraction', 2, 50);
-            swiperForSection('.swiper-3-js', '.events__btn-next', '.events__btn-prev', '.events .swiper-pagination', 'bullets', 3, 27);
-        } else if ($(window).width() >= 1440) {
-            swiperForSection('.slides-container-galery', '.galery__btn-next', '.galery__btn-prev', '.galery .galery__pagination', 'fraction', 3, 50);
-            swiperForSection('.slides-container-project', '.projects__btn-next', '.projects__btn-prev', '.projects .projects__pagination', 'fraction', 3, 50);
-            swiperForSection('.swiper-3-js', '.events__btn-next', '.events__btn-prev', '.events .swiper-pagination', 'bullets', 3, 50);
-        } else {
-            swiperForSection('.slides-container-galery', '.galery__btn-next', '.galery__btn-prev', '.galery .galery__pagination', 'fraction', 1, 20);
-            swiperForSection('.slides-container-project', '.projects__btn-next', '.projects__btn-prev', '.projects .projects__pagination', 'fraction', 1, 20);
-            swiperForSection('.swiper-3-js', '.events__btn-next', '.events__btn-prev', '.events .swiper-pagination', 'bullets', 1, 20);
-        }
-    };
-
     //свайпер для hero
     const heroSwiper = new Swiper('.swiper-1-js', {
         loop: true,
         allowTouchMove: false,
+        slidesPerView: 3,
         speed: 10000,
         effect: 'fade',
         autoplay: {
             delay: 5000
         }
+    });
+
+    //свайпер для галереи
+    const galerySwiper = new Swiper('.slides-container-galery', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        slidesPerGroup: 1,
+        grid: {
+            rows: 1,
+            fill: "row"
+        },
+        pagination: {
+            el: '.galery__pagination',
+            type: 'fraction',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.galery__btn-next',
+            prevEl: '.galery__btn-prev',
+        },
+        breakpoints: {
+            576: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                slidesPerGroup: 2,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 36,
+                slidesPerGroup: 2,
+            },
+            1440: {
+                slidesPerView: 3,
+                spaceBetween: 50,
+                slidesPerGroup: 3,
+            }
+        },
+        a11y: false,
+        keyboard: {
+            enabled: true,
+            onlyInViewport: true,
+        }, // можно управлять с клавиатуры стрелками влево/вправо
+
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true,
+        slideVisibleClass: "slide-visible",
+
+        on: {
+            init: function() {
+                this.slides.forEach((slide) => {
+                    if (!slide.classList.contains("slide-visible")) {
+                        slide.tabIndex = "-1";
+                    } else {
+                        slide.tabIndex = "";
+                    }
+                });
+            },
+            slideChange: function() {
+                this.slides.forEach((slide) => {
+                    if (!slide.classList.contains("slide-visible")) {
+                        slide.tabIndex = "-1";
+                    } else {
+                        slide.tabIndex = "";
+                    }
+                });
+            }
+        },
+
+    });
+
+    //свайпер для событий
+    const eventsSwiper = new Swiper('.swiper-3-js', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        slidesPerGroup: 1,
+        grid: {
+            rows: 1,
+            fill: "row"
+        },
+        pagination: {
+            el: '.events .swiper-pagination',
+            type: 'bullets',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.events__btn-next',
+            prevEl: '.events__btn-prev',
+        },
+        breakpoints: {
+            576: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                slidesPerGroup: 2,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 36,
+                slidesPerGroup: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 27,
+                slidesPerGroup: 3,
+            },
+            1440: {
+                slidesPerView: 3,
+                spaceBetween: 50,
+                slidesPerGroup: 3,
+            }
+        },
+        a11y: false,
+        keyboard: {
+            enabled: true,
+            onlyInViewport: true,
+        },
+
+
+    });
+
+    //свайпер для проектов
+    const projectsSwiper = new Swiper('.slides-container-project', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        slidesPerGroup: 1,
+        grid: {
+            rows: 1,
+            fill: "row"
+        },
+        pagination: {
+            el: '.projects .projects__pagination',
+            type: 'fraction',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.projects__btn-next',
+            prevEl: '.projects__btn-prev',
+        },
+        breakpoints: {
+            576: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                slidesPerGroup: 2,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 36,
+                slidesPerGroup: 2,
+            },
+            1024: {
+                slidesPerView: 2,
+                spaceBetween: 50,
+                slidesPerGroup: 2,
+            },
+            1440: {
+                slidesPerView: 3,
+                spaceBetween: 50,
+                slidesPerGroup: 3,
+            }
+        },
+        a11y: false,
+        keyboard: {
+            enabled: true,
+            onlyInViewport: true,
+        },
+
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true,
+        slideVisibleClass: "slide-visible",
+
+        on: {
+            init: function() {
+                this.slides.forEach((slide) => {
+                    if (!slide.classList.contains("slide-visible")) {
+                        slide.tabIndex = "-1";
+                    } else {
+                        slide.tabIndex = "";
+                    }
+                });
+            },
+            slideChange: function() {
+                this.slides.forEach((slide) => {
+                    if (!slide.classList.contains("slide-visible")) {
+                        slide.tabIndex = "-1";
+                    } else {
+                        slide.tabIndex = "";
+                    }
+                });
+            }
+        },
     });
 
     //добавляем клик на кнопку открытия бургера
@@ -208,8 +284,6 @@
             heightStyle: 'content'
         });
     });
-
-
 
     const arrayBtn = document.querySelectorAll('.people-item-button');
     var box = $('.painter-about');
@@ -255,8 +329,6 @@
         theme: 'purple',
         maxWidth: 240,
     });
-
-    // контакты
 
     // для карты
     ymaps.ready(init);
