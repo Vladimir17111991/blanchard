@@ -108,7 +108,7 @@
         slideVisibleClass: "slide-visible",
 
         on: {
-            init: function() {
+            init: function () {
                 this.slides.forEach((slide) => {
                     if (!slide.classList.contains("slide-visible")) {
                         slide.tabIndex = "-1";
@@ -117,7 +117,7 @@
                     }
                 });
             },
-            slideChange: function() {
+            slideChange: function () {
                 this.slides.forEach((slide) => {
                     if (!slide.classList.contains("slide-visible")) {
                         slide.tabIndex = "-1";
@@ -230,7 +230,7 @@
         slideVisibleClass: "slide-visible",
 
         on: {
-            init: function() {
+            init: function () {
                 this.slides.forEach((slide) => {
                     if (!slide.classList.contains("slide-visible")) {
                         slide.tabIndex = "-1";
@@ -239,7 +239,7 @@
                     }
                 });
             },
-            slideChange: function() {
+            slideChange: function () {
                 this.slides.forEach((slide) => {
                     if (!slide.classList.contains("slide-visible")) {
                         slide.tabIndex = "-1";
@@ -252,19 +252,19 @@
     });
 
     //добавляем клик на кнопку открытия бургера
-    burgerOpen.addEventListener('click', function() {
+    burgerOpen.addEventListener('click', function () {
         menu.classList.toggle('is-active')
     });
-    burgerClose.addEventListener('click', function() {
+    burgerClose.addEventListener('click', function () {
         menu.classList.toggle('is-active')
     });
 
 
     //добавляем клик на кнопку поиска
-    searchOpen.addEventListener('click', function() {
+    searchOpen.addEventListener('click', function () {
         search.classList.toggle('is-active')
     });
-    searchClose.addEventListener('click', function() {
+    searchClose.addEventListener('click', function () {
         search.classList.toggle('is-active')
     });
 
@@ -279,7 +279,7 @@
     });
 
     //для аккордеона
-    $(function() {
+    $(function () {
         $("#accordion").accordion({
             heightStyle: 'content'
         });
@@ -289,34 +289,34 @@
     var box = $('.painter-about');
     //для табов аккордеона
     //добавляем подсветку на текущий элемент, при этом, предыдущие элементы теряют подсветку
-    arrayBtn.forEach(function(itemButton) {
-        itemButton.addEventListener('click', function(event) {
+    arrayBtn.forEach(function (itemButton) {
+        itemButton.addEventListener('click', function (event) {
             // плавный переход между художниками
-            $('.people-item-button').on('click', function() {
+            $('.people-item-button').on('click', function () {
                 if (box.hasClass('hidden')) {
                     box.removeClass('hidden');
-                    setTimeout(function() {
+                    setTimeout(function () {
                         box.removeClass('visuallyhidden');
                     }, 20);
                 } else {
                     box.addClass('visuallyhidden');
-                    box.one('transitionend', function(e) {
+                    box.one('transitionend', function (e) {
                         box.addClass('hidden');
                     });
                 }
             });
             // после клика удаляем все предыдущие классы btn-delegation
-            arrayBtn.forEach(function(item) {
+            arrayBtn.forEach(function (item) {
                 item.classList.remove('btn-delegation');
             })
             event.target.classList.add('btn-delegation');
             const path = event.currentTarget.dataset.path;
 
-            document.querySelectorAll('.painter-about').forEach(function(stepButton) {
+            document.querySelectorAll('.painter-about').forEach(function (stepButton) {
                 stepButton.classList.remove('painter-active')
             });
             //добавление класса видимости соответствующему таргету
-            document.querySelectorAll(`[data-target="${path}"]`).forEach(function(currTarget) {
+            document.querySelectorAll(`[data-target="${path}"]`).forEach(function (currTarget) {
                 currTarget.classList.add('painter-active')
             });
         })
@@ -337,28 +337,28 @@
         const mapElem = document.querySelector('#map');
         const myMap = new ymaps.Map(
             "map", {
-                center: [55.75846806898367, 37.60108849999989],
-                zoom: 14,
-                controls: ['geolocationControl', 'zoomControl']
-            }, {
-                suppressMapOpenBlock: true,
-                geolocationControlSize: "large",
-                geolocationControlPosition: { top: "200px", right: "20px" },
-                geolocationControlFloat: 'none',
-                zoomControlSize: "small",
-                zoomControlFloat: "none",
-                zoomControlPosition: { top: "120px", right: "20px" }
-            }
+            center: [55.75846806898367, 37.60108849999989],
+            zoom: 14,
+            controls: ['geolocationControl', 'zoomControl']
+        }, {
+            suppressMapOpenBlock: true,
+            geolocationControlSize: "large",
+            geolocationControlPosition: { top: "200px", right: "20px" },
+            geolocationControlFloat: 'none',
+            zoomControlSize: "small",
+            zoomControlFloat: "none",
+            zoomControlPosition: { top: "120px", right: "20px" }
+        }
         );
 
         myMap.behaviors.disable('scrollZoom');
         const myPlacemark = new ymaps.Placemark(
             [55.75846806898367, 37.60108849999989], {}, {
-                iconLayout: "default#image",
-                iconImageHref: "/img/pointMap.svg",
-                iconImageSize: [20, 20],
-                iconImageOffset: [-1, -17],
-            }
+            iconLayout: "default#image",
+            iconImageHref: "/img/pointMap.svg",
+            iconImageSize: [20, 20],
+            iconImageOffset: [-1, -17],
+        }
         );
         myMap.geoObjects.add(myPlacemark);
         myMap.container.fitToViewport();
